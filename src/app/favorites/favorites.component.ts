@@ -7,4 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class FavoritesComponent {
   @Input() favorites: string[] = [];
+
+  viewDog(url: string) {
+    window.open(url, '_blank');
+  }
 }

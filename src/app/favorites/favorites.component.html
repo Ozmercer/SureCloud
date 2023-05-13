@@ -1,3 +1,10 @@
+<h2>Favorite Dogs</h2>
+
 <div class="gallery">
-  <img *ngFor="let url of favorites" [src]="url" alt="Favorite" />
+  <img
+    *ngFor="let url of favorites"
+    [src]="url"
+    alt="Favorite"
+    (click)="viewDog(url)"
+  />
 </div>

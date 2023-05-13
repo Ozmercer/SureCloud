@@ -1,0 +1,14 @@
+.card {
+  background-color: #fff;
+  padding: 30px;
+  width: fit-content;
+
+  .image-wrapper {
+    height: 500px;
+
+    img {
+      height: 100%;
+      max-width: 1000px;
+    }
+  }
+}

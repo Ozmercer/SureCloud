@@ -1,29 +1,23 @@
-<ng-container
+<div
+  class="wrapper"
   *ngIf="{ url: dogs$ | async, favourites: favourites$ | async } as state"
 >
-  <h1>{{ title }}</h1>
+  <header>
+    <h2>{{ title }}</h2>
+  </header>
 
   <div class="layout">
     <main>
-      <div class="image-wrapper">
-        <img
-          *ngIf="state.url; else loading"
-          [src]="state.url"
-          alt="Dog photo"
-        />
-      </div>
-
-      <ng-template #loading>Loading...</ng-template>
-
-      <div>
-        <button (click)="playDogs()">Start</button>
-        <button (click)="pauseDogs()">Stop</button>
-        <button (click)="addToFavorites(state.url)">Like</button>
-      </div>
+      <app-dog-display
+        [url]="state.url"
+        (start)="playDogs()"
+        (pause)="pauseDogs()"
+        (like)="addToFavorites($event)"
+      ></app-dog-display>
     </main>
 
     <aside>
       <app-favorites [favorites]="state.favourites"></app-favorites>
     </aside>
   </div>
-</ng-container>
+</div>

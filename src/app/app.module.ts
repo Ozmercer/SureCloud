@@ -4,11 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { DogDisplayComponent } from './dog-display/dog-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    DogDisplayComponent
   ],
   imports: [
     BrowserModule,
