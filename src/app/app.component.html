@@ -1,1 +1,7 @@
-<h1>{{title}}</h1>
+<main>
+  <h1>{{ title }}</h1>
+  <img [src]="dogUrl" alt="Dog photo" />
+
+  <button (click)="playDogs()">Start</button>
+  <button (click)="pauseDogs()">Stop</button>
+</main>
