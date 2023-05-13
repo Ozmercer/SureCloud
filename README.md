@@ -1,3 +1,15 @@
+# Notes
+Please see my solution for this test.
+As requested, I have not installed (almost) any extra libraries. I was planning to upgrade Angular to its latest version, but I wasn't sure if this was also not allowed so I kept it on version 12. I did however install prettier to help with my code reformatting, however this has no affect on the functionality of the app.
+
+The Styles are inspired by the Figma file attached, however the design could not be identical due to the images from the endpoint being in a very wide range of dimensions. I decided it would be better to tweak with the designs rather than have morphed images, so I took some liberty to make adjustments to the styles.
+
+I also thought it would be nice if clicking on the gallery would open the full-sized image, so I added that functionality, despite it not being part of the task.
+
+Please notice that I have also added unit tests for the components. I generally write tests with the help of the 3rd party library "Spectator", but since it was asked not to install any further libraries I used the default Jasmine syntax. 
+
+I hope you are happy with the result!
+
 # Instructions
 Please find instructions [here](./instructions/TEST-INSTRUCTIONS.md)
 
