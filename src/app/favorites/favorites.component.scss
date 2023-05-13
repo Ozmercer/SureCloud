@@ -1,0 +1,12 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 350px;
+  justify-content: space-between;
+
+  img {
+    height: 100px;
+    max-width: 200px;
+  }
+}

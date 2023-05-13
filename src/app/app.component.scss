@@ -1,7 +1,13 @@
-.image-wrapper {
-  height: 500px;
+.layout {
+  display: flex;
+  justify-content: space-between;
 
-  img {
-    height: 100%;
+  .image-wrapper {
+    height: 500px;
+
+    img {
+      height: 100%;
+      max-width: 1000px;
+    }
   }
 }

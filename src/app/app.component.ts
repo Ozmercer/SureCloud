@@ -9,12 +9,14 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   title = 'Dog Library';
-  dogs$: Observable<string> | undefined;
+  dogs$: Observable<string>;
+  favourites$ = this.dogService.favorites$;
 
   constructor(private dogService: DogsService) {}
 
   ngOnInit() {
     this.playDogs();
+    this.dogService.loadFavorites();
   }
 
   pauseDogs() {
@@ -23,5 +25,9 @@ export class AppComponent implements OnInit {
 
   playDogs() {
     this.dogs$ = this.dogService.getDogImages();
+  }
+
+  addToFavorites(url: string) {
+    this.dogService.addToFavorites(url);
   }
 }
