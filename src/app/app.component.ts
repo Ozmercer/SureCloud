@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DogsService } from './services/dogs.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { DogsService } from './services/dogs.service';
 })
 export class AppComponent implements OnInit {
   title = 'Dog Library';
-  dogUrl = '';
+  dogs$: Observable<string> | undefined;
 
   constructor(private dogService: DogsService) {}
 
@@ -21,6 +22,6 @@ export class AppComponent implements OnInit {
   }
 
   playDogs() {
-    this.dogService.getDogImages().subscribe((url) => (this.dogUrl = url));
+    this.dogs$ = this.dogService.getDogImages();
   }
 }

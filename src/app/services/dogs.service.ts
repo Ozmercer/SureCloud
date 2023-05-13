@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { map, startWith, switchMap, takeUntil } from 'rxjs/operators';
 import { interval, Subject } from 'rxjs';
 
 interface DogResponse {
@@ -12,17 +12,22 @@ interface DogResponse {
   providedIn: 'root',
 })
 export class DogsService {
-  pause = new Subject<void>();
+  private pause = new Subject<void>();
+  private dogsStream = this.http.get<DogResponse>(
+    'https://dog.ceo/api/breeds/image/random'
+  );
 
   constructor(private http: HttpClient) {}
 
   getDogImages() {
+    // prevents multiple intervals running at once
+    this.pause.next();
+
     return interval(3000).pipe(
-      takeUntil(this.pause),
-      switchMap(() =>
-        this.http.get<DogResponse>('https://dog.ceo/api/breeds/image/random')
-      ),
-      map((response: DogResponse) => response.message)
+      startWith(this.dogsStream),
+      switchMap(() => this.dogsStream),
+      map((response: DogResponse) => response.message),
+      takeUntil(this.pause)
     );
   }
 

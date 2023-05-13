@@ -1,7 +1,13 @@
-<main>
+<main *ngIf="{ url: dogs$ | async } as state">
   <h1>{{ title }}</h1>
-  <img [src]="dogUrl" alt="Dog photo" />
+  <div class="image-wrapper">
+    <img *ngIf="state.url; else loading" [src]="state.url" alt="Dog photo" />
+  </div>
 
-  <button (click)="playDogs()">Start</button>
-  <button (click)="pauseDogs()">Stop</button>
+  <ng-template #loading>Loading...</ng-template>
+
+  <div>
+    <button (click)="playDogs()">Start</button>
+    <button (click)="pauseDogs()">Stop</button>
+  </div>
 </main>
