@@ -16,9 +16,9 @@ header {
 }
 
 .layout {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   flex-grow: 1;
+  grid-template-columns: 1fr 465px;
 
   main {
     background-color: #e5e5e5;
@@ -27,6 +27,8 @@ header {
   }
 
   aside {
-    padding: 40px;
+    padding: 0 40px 40px;
+    overflow-y: auto;
+    background-color: #fff;
   }
 }

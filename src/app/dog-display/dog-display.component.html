@@ -7,9 +7,16 @@
 
   <ng-template #loading>Loading...</ng-template>
 
-  <div>
-    <button (click)="start.emit()">Start</button>
-    <button (click)="pause.emit()">Stop</button>
-    <button (click)="like.emit(url)">Like</button>
+  <div class="actions">
+    <div class="date">
+      <div>Date: {{ now | date : "dd.MM.YY" }}</div>
+      <div>Time: {{ now | date : "HH:mma" }}</div>
+    </div>
+
+    <div class="buttons">
+      <button class="green" (click)="start.emit()">Start</button>
+      <button class="red" (click)="pause.emit()">Stop</button>
+      <button class="yellow" (click)="like.emit(url)">Like</button>
+    </div>
   </div>
 </div>

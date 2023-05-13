@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { DogsService } from './services/dogs.service';
 import { Observable } from 'rxjs';
 
@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
   title = 'Dog Library';
